@@ -54,6 +54,9 @@ var app = new Vue({
             },
         ],
         cart: [],
-        show_modal: false
+        show_modal: false,
+        total: 0,
     },
+
+
 })

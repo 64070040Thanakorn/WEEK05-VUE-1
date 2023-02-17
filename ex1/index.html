@@ -66,7 +66,13 @@
 
         <!-- ข้อ 2 ----------------------------------------------------------------- -->
         <div id='ex2'>
-            <img v-bind:src="'./image/' + number_runner + '.svg'">
+            <!-- <img :src="'./image/' + number_runner + '.svg'"> -->
+            <img src="./image/0.svg" v-show="number_runner === 0">
+            <img src="./image/1.svg" v-show="number_runner === 1">
+            <img src="./image/2.svg" v-show="number_runner === 2">
+            <img src="./image/3.svg" v-show="number_runner === 3">
+            <img src="./image/4.svg" v-show="number_runner === 4">
+            <img src="./image/5.svg" v-show="number_runner === 5">
         </div>
 
         <hr>
@@ -140,9 +146,9 @@
 
         <!-- ข้อ 6 ----------------------------------------------------------------- -->
         <div id='ex6'>
-            <div class="dropdown" :class="{ 'is-active': isActive}">
+            <div class="dropdown" :class="{ 'is-active': bool}">
                 <div class="dropdown-trigger">
-                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" @click="isActive = !isActive">
+                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" @click="bool = !bool">
                         <span>Month Selection</span>
                         <span class="icon is-small">
                             <i class="fas fa-angle-down" aria-hidden="true"></i>

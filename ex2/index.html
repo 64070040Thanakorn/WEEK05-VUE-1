@@ -41,8 +41,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image is-1by1">
-                                        <img :src="item.image"
-                                            alt="Placeholder image">
+                                        <img :src="item.image" alt="Placeholder image">
                                     </figure>
                                 </div>
                                 <div class="card-content" :class="{'has-background-warning-light': item.is_favorite}">
@@ -72,7 +71,8 @@
                                         </div>
 
                                         <!-- ไอคอนรูปตะกร้า -->
-                                        <div class="icon is-size-4" @click="cart.push({ title : item.title, brand : item.brand, price : item.price, is_favorite : item.is_favorite ,image : item.image} )">
+                                        <div class="icon is-size-4"
+                                            @click="cart.push({ title : item.title, brand : item.brand, price : item.price, is_favorite : item.is_favorite ,image : item.image} ); total += item.price">
                                             <i class="fas fa-shopping-cart has-text-warning"></i>
                                         </div>
 
@@ -91,7 +91,7 @@
             <div class="column is-3 pt-6 pl-0 pr-5">
                 <div style="display: flex;justify-content: space-between;">
                     <span class="is-size-4 mb-4">Cart ()</span>
-                    <a class="is-danger mb-4 button" @click="cart.splice(0, cart.length)">Clear</a>
+                    <a class="is-danger mb-4 button" @click="cart.splice(0, cart.length); total = 0">Clear</a>
                 </div>
 
                 <!-- Card element start here------------------------------------------>
@@ -100,8 +100,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <figure class="image is-96x96">
-                                    <img :src="cart.image"
-                                        alt="Placeholder image">
+                                    <img :src="cart.image" alt="Placeholder image">
                                 </figure>
                             </div>
                             <div class="media-content pt-2">
@@ -112,8 +111,11 @@
                         </div>
                     </div>
                 </div>
-
+                <div>
+                    Total : {{total}}
+                </div>
             </div>
+
         </div>
 
 
@@ -179,7 +181,7 @@
                     <hr>
                     <figure class="image is-16by9">
                         <img src="./result (2).gif">
-                      </figure>
+                    </figure>
                 </section>
             </div>
         </div>
